@@ -16,7 +16,6 @@ const RegisterPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [profileImage, setProfileImage] = useState("");
   const [error, setError] = useState("");
   const [isloading, setLoading] = useState(false)
 
@@ -38,7 +37,7 @@ const RegisterPage = () => {
     setLoading(true);
     try {
       const { data } = await axios.post("/api/auth/register", {
-        username, email, password, profileImage
+        username, email, password
       });
       if (data.success) {
         signIn("credentials", {
